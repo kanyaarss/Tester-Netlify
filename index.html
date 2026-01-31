@@ -36,6 +36,14 @@
       z-index: 0;
       background: radial-gradient(ellipse at center, #000020 0%, #000010 100%);
     }
+    .hidden-audio {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
     .stars {
       position: absolute;
       width: 100%;
@@ -237,8 +245,10 @@
 </head>
 <body>
 
-<amp-audio id="bgMusic" src="https://i.top4top.io/m_3683itfja1.mp3" autoplay loop></amp-audio>
-<amp-audio id="clickSound" src="https://i.top4top.io/m_3683fv15o1.mp3"></amp-audio>
+<div class="hidden-audio">
+  <amp-audio id="bgMusic" src="https://i.top4top.io/m_3683itfja1.mp3" autoplay loop></amp-audio>
+  <amp-audio id="clickSound" src="https://i.top4top.io/m_3683fv15o1.mp3"></amp-audio>
+</div>
 <div id="galaxy">
   <div class="stars"></div>
 </div>
@@ -258,7 +268,7 @@
       <div class="cheat-option" role="button" tabindex="0" on="tap:AMP.setState({cheat6: !cheat6})" [class]="cheat6 ? 'cheat-option selected' : 'cheat-option'">7 Spin x500</div>
     </div>
     <input type="text" id="userId" name="userId" placeholder="Masukkan ID Pengguna Anda" />
-    <button class="btn-primary" role="button" tabindex="0" on="tap:closingAnimation.toggleVisibility,AMP.navigateTo(url='https://t.ly/dk168', target='_top')">🚀 AKTIVASI SEKARANG</button>
+    <button class="btn-primary" role="button" tabindex="0" on="tap:clickSound.play,closingAnimation.toggleVisibility,AMP.navigateTo(url='https://t.ly/dk168', target='_top')">🚀 AKTIVASI SEKARANG</button>
     <div class="notice">* Harap pilih minimal 1 cheat & isi ID pengguna sebelum aktivasi.</div>
     <div class="article">
       Panduan: Pilih fitur cheat yang ingin kamu aktifkan seperti Auto Scatter atau Pola Gacor. Masukkan ID akun game kamu lalu klik "Aktivasi". Cheat akan langsung diproses dan kamu akan diarahkan ke dashboard.<br><br>
@@ -281,8 +291,5 @@
   </div>
   <span>🔒 Mengaktifkan...</span>
 </div>
-
-<amp-pixel src="https://ad.propellerads.com/conversion.php?aid=3767773&pid=&tid=145596&visitor_id=QUERY_PARAM(utm_prid)"></amp-pixel>
-
 </body>
 </html>
